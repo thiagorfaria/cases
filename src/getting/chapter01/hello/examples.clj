@@ -60,3 +60,9 @@
   (println "** second argument:" b)
   (/ (+ a b) 2.0))
 (println (chatty-average 10 20))
+
+;; In the wild
+;; Generating a project using lein commands
+;; lein new app createapp
+;; Starting a application using lein commands
+;; lein run
