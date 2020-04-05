@@ -38,13 +38,13 @@
 ;; implement stack semantics with conj, peek and pop.
 
 ;; we start with a list
-(def stack '(2 1 0))
-(println "list peek" (peek stack))
-(println "list pop" (pop stack))
-(println "list type pop" (type (pop stack)))
+(def stack-one '(2 1 0))
+(println "list peek" (peek stack-one))
+(println "list pop" (pop stack-one))
+(println "list type pop" (type (pop stack-one)))
 ;; push = conj
-(println "list conj" (conj stack 3))
-(println "list type conj" (type (conj stack 3)))
+(println "list conj" (conj stack-one 3))
+(println "list type conj" (type (conj stack-one 3)))
 
 ;; now let us try a vector
 (def stack [0 1 2])
