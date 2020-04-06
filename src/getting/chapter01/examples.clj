@@ -22,7 +22,8 @@
 
 
 ;; Arithmetic
-(println "\nArithmetic")
+(println)
+(println "Arithmetic")
 (println "(+ 1900 84) =>" (+ 1900 84))
 (println "(* 16 124) =>" (* 16 124))
 (println "(- 2000 16) =>" (- 2000 16))
@@ -37,14 +38,16 @@
 (println "(+ 1984 2010.0) =>" (+ 1984 2010.0))
 
 ;; No Variable Assignment, but close
-(println "\nNo Variable Assignment, but close")
+(println)
+(print "No Variable Assignment, but close")
 (def first-name "Russ")
 (println "first-name =>" first-name)
 (def the-average (/ (+ 20 40.0) 2.0))
 (println "the-average =>" the-average)
 
 ;; A function of your own
-(println "\nA function of your own")
+(println)
+(println "A function of your own")
 (defn hello-world []
   (println "(hello-word) =>" "Hello, world!"))
 (hello-world)
@@ -66,3 +69,9 @@
 ;; lein new app createapp
 ;; Starting a application using lein commands
 ;; lein run
+
+;; Staying out of trouble
+(println)
+(println "Staying out of trouble")
+(/ 100 0)
+
