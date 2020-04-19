@@ -24,3 +24,43 @@
 (println (type (cons "Carrie" novels)))
 
 ;; List
+(println)
+(println "List")
+(println (pr-str '(1 2 3 "four" 5 "six")))
+(println (pr-str '(1 2.0 2.9999 ​ "four" ​ 5.001 ​ "six")))
+(println (pr-str '([1 2 (​ "a" ​ ​ "list" ​ ​ "inside a" ​ ​ "vector" ​)] ​ "inside" ​ ​ "a" ​ ​ "list")))
+(println (pr-str (list 1 2 3 "four" 5 "six")))
+(def poems '("Iliad" "Odyssey" "Now we are Six"))
+(println (count poems))
+(println (first poems))
+(println (rest poems))
+(println (nth poems 2))
+
+;; Lists versus Vectors
+(println)
+(println "Lists versus Vectors")
+(def poems '("Iliad" "Odyssey" "Now We Are Six"))
+(println "conj list =>" (pr-str (conj poems "Jabberwocky")))
+(def poems-vector ["Iliad" "Odyssey" "Now We Are Six"])
+(println "cont vector =>" (pr-str (conj poems-vector "Jabberwocky")))
+
+;; Staying out of trouble
+(println)
+(println "Staying out of trouble")
+(def novels ["Emma" "Comma" "War and Peace"])
+(println (pr-str (conj novels "Jaws")))
+(def more-novels (conj novels "Jaws"))
+(println (pr-str more-novels))
+(def novels-list ["Emma" "Comma" "War and Peace"])
+
+;; In the Wild
+(println)
+(println "In the Wild")
+
+(defn replace-all [string vectors])
+
+(defn escape-html [string]
+  (replace-all string [["&" "&amp"]
+                       ["\"" "&quot;"]
+                       ["<" "&lt;"]
+                       [">" "&gt;"]]))

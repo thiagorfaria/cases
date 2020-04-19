@@ -1,4 +1,4 @@
-(ns cases.j.ex_juxt
+(ns cases.j.juxt
   (:use clojure.pprint))
 
 ;; Takes a set of functions and returns a fn that is the juxtaposition
@@ -10,7 +10,9 @@
 ;; Extract values from a map, treating keywords as functions.
 (pprint (type (juxt :a :b)))
 (println ((juxt :a :b) {:a 1 :b 2 :c 3 :d 4}))
+(println (type ((juxt :a :b) {:a 1 :b 2 :c 3 :d 4})))
 (println ((juxt :a) {:a 1 :b 2 :c 3 :d 4}))
+(println (:a {:a 1 :b 2 :c 3 :d 4}))
 
 (defn identify-name [x] [(identity x) (name x)])
 (println (identify-name :test))
