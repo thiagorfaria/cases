@@ -1,4 +1,4 @@
-(ns getting.chapter01.hello.examples)
+(ns getting.chapter01.example)
 
 ;; Do two semicolons add up to a whole colon?
 (println "Hello, world!")

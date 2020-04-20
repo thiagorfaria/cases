@@ -36,3 +36,28 @@
 (println (pr-str book-sorted))
 (println (keys book-sorted))
 (println (pr-str (vals book-sorted)))
+
+;; Sets
+(println)
+(println "Sets")
+(def genres #{:sci-fi :romance :mystery})
+(println genres)
+(def authors #{"Dickens" "Austen" "King"})
+(println (pr-str authors))
+
+(println (contains? authors "Austen"))
+(println (contains? genres "Austen"))
+(println (pr-str (authors "Austen")))
+(println (pr-str (:sci-fi genres)))
+(println (pr-str (genres :sci-fi)))
+(println (pr-str (genres :historical)))
+(def more-authors (conj authors "Clarke"))
+(println (pr-str more-authors))
+(println (pr-str (disj more-authors "King")))
+
+;; Stay out of trouble
+(println)
+(println "Stay out of trouble")
+(println (pr-str (first book-keyword)))
+(println (pr-str (rest book-keyword)))
+(println (pr-str (count book-keyword)))
