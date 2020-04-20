@@ -57,10 +57,18 @@
 (println)
 (println "In the Wild")
 
-(defn replace-all [string vectors])
+(defn replace-all [string coll]
+  (let [matchers (first coll)
+        from (first matchers)
+        to (last matchers)
+        len (count coll)
+        text (clojure.string/replace string from to)]
+    (if (= 1 len) text (recur text (rest coll)))))
 
 (defn escape-html [string]
   (replace-all string [["&" "&amp"]
                        ["\"" "&quot;"]
                        ["<" "&lt;"]
                        [">" "&gt;"]]))
+
+(println (escape-html "John & Mary \" Mary > John \" John < Mary"))
