@@ -58,3 +58,74 @@
 (println (shipping-surcharge false false true))
 (println (shipping-surcharge false true true))
 (println (shipping-surcharge false false false))
+
+;; Do and when
+(println)
+(println "Do and when")
+(println (do
+           (println "This is four expressions.")
+           (println "All grouped together as one")
+           (println "That prints some stuff and then evaluates to 44")
+           44))
+(defn shipping-charge2 [preferred-customer order-amount]
+  (if preferred-customer
+    (do
+      (println "Preferred customer, free shipping!")
+      0.0)
+    (do
+      (println "Regular customer, charge them for shipping")
+      (* order-amount 0.10))))
+(println (shipping-charge2 true 100))
+(println (shipping-charge2 false 100))
+(println)
+(let [preferred-customer true]
+  (when preferred-customer
+    (println "Hello returning customer!")
+    (println "Welcome back to Blotts Books!")))
+
+;; Dealing with multiple conditions
+(println)
+(println "Dealing with multiple conditions")
+(defn shipping-charge3 [preferred-customer order-amount]
+  (if preferred-customer
+    0.0
+    (if (< order-amount 50.0)
+      5.0
+      (if (< order-amount 100.0)
+        10.0
+        (* 0.1 order-amount)))))
+(println "3" (shipping-charge3 true 100))
+(println "3" (shipping-charge3 false 45))
+(println "3" (shipping-charge3 false 85))
+(println "3" (shipping-charge3 false 105))
+(println)
+(defn shipping-charge4 [preferred-customer order-amount]
+  (cond
+    preferred-customer 0.0
+    (< order-amount 50.0) 5.0
+    (< order-amount 100.0) 10.0
+    (>= order-amount 100.0) (* 0.1 order-amount)))
+(println "4" (shipping-charge4 true 100))
+(println "4" (shipping-charge4 false 45))
+(println "4" (shipping-charge4 false 85))
+(println "4" (shipping-charge4 false 105))
+(println)
+(defn shipping-charge5 [preferred-customer order-amount]
+  (cond
+    preferred-customer 0.0
+    (< order-amount 50.0) 5.0
+    (< order-amount 100.0) 10.0
+    :else (* 0.1 order-amount)))
+(println "5" (shipping-charge5 true 100))
+(println "5" (shipping-charge5 false 45))
+(println "5" (shipping-charge5 false 85))
+(println "5" (shipping-charge5 false 105))
+(println)
+(defn customer-greeting [status]
+  (case status
+    :gold "Welcome, welcome, welcome back!!"
+    :preferred "Welcome back!"
+    "Welcome to Blotts Books"))
+(println (customer-greeting :gold))
+(println (customer-greeting :preferred))
+(println (customer-greeting nil))
