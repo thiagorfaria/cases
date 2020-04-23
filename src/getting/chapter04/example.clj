@@ -129,3 +129,19 @@
 (println (customer-greeting :gold))
 (println (customer-greeting :preferred))
 (println (customer-greeting nil))
+
+;;Throwing and catching
+(println)
+(println "Throwing and catching")
+
+(try
+  (/ 0 0)
+  (catch ArithmeticException e (println "Math problem."))
+  (catch StackOverflowError e (println "Unable to publish..")))
+(defn publish-book [book]
+  (when (not (:title book))
+    (throw
+      (ex-info "A book needs a title!" {:book book}))))
+(try
+  (publish-book {})
+  (catch Exception e (prn e)))
