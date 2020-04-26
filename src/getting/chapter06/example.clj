@@ -1,7 +1,7 @@
 (ns getting.chapter06.example)
 
-;; Functions are values
-(prn "Functions are values")
+;; ## Functions are values
+(prn "## Functions are values")
 (def dracula {:title  "Dracula"
               :author "Stoker"
               :price  1.99
@@ -49,9 +49,9 @@
 (prn (str "Predicate: Is Dracula a horror genre and cheap? " (both? cheap? horror? dracula)))
 (prn (str "Predicate: Is Dracula a adventure genre and pricey? " (both? pricey? adventure? dracula)))
 
-;; Functions on the Fly
+;; ## Functions on the Fly
 (prn)
-(prn "Functions on the Fly")
+(prn "## Functions on the Fly")
 (println "A function:" (fn [n] (* 2 n)))
 (println "A function:" ((fn [n] (* 2 n)) 10))
 (def double-it (fn [n] (* 2 n)))
@@ -61,8 +61,8 @@
 (println "fn testing <= 9.99: " ((fn [book] (<= (:price book) 9.99)) {:price 9.35}))
 
 ;; function that produce function
-(def book-no-title {:price 0.99 :genre :horror})
 (prn)
+(def book-no-title {:price 0.99 :genre :horror})
 (prn "book-no-title" book-no-title)
 (defn cheaper-f [max-price]
   (fn [book]
@@ -94,8 +94,10 @@
           (fn [book] (= (:title book) "Possession"))))
 
 (println "cheap-horror-possession?" (cheap-horror-possession? possession))
+
+;; ## A functional toolkit
 (prn)
-(prn "A Functional Toolkit")
+(prn "## A Functional Toolkit")
 (println "1 2 3 4 = " (+ 1 2 3 4))
 (def the-function +)
 (def args [1 2 3 4])
@@ -118,11 +120,17 @@
 (defn cheaper-than [max-price book]
   (<= (:price book) max-price))
 
-(def real-cheap? (partial cheaper-than 1.00))
-(def kind-of-cheap? (partial cheaper-than 1.99))
-(def marginally-cheap? (partial cheaper-than 5.99))
+(println "Book no title" book-no-title)
+(def real-cheap2? (partial cheaper-than 1.00))
+(def kind-of-cheap2? (partial cheaper-than 1.99))
+(def marginally-cheap2? (partial cheaper-than 5.99))
+(println "real-cheap?:" (real-cheap2? book-no-title))
+(println "kind-of-cheap?:" (kind-of-cheap2? book-no-title))
+(println "marginally-cheap?:" (marginally-cheap2? book-no-title))
+
 
 ;; my test
+(prn)
 (def hello (partial str "Hello " "mister "))
 (println (hello "world!"))
 
@@ -131,3 +139,18 @@
 (println "Dracula is not a adventure book?" (not-adventure? dracula))
 (def not-adventure2? (complement adventure?))
 (println "Dracula is not a adventure book?" (not-adventure2? dracula))
+
+;;every-pred
+(prn)
+(println "Dracula book:" dracula)
+(def cheap-horror3? (every-pred cheap? horror?))
+(println "Is Dracula cheap and horror genre?" (cheap-horror3? dracula))
+(println "Possession book:" possession)
+(def cheap-horror-possession2? (every-pred cheap? horror? (fn [book] (= (:title book) "Possession"))))
+(println "Is Possession cheap and horror genre?" (cheap-horror-possession2? possession))
+
+;; ## Function Literals
+(prn)
+(prn "## Function Literals")
+(println (#(* % 2) 6))
+(println (#(+ %1 %2 %3) 6 5 4))
