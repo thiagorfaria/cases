@@ -4,8 +4,9 @@
 
 ;; Otherwise returns nil.
 (try
-  (let [error-message "Something went wrong!"]
-    (throw (ex-info error-message {:error 404})))
+  (let [error-message "Something went wrong!"
+        error-data {:error 404}]
+    (throw (ex-info error-message error-data)))
   (catch Exception e
     (prn (str "Oops! " (ex-message e)))
     (prn (str "Because! " (ex-data e)))))
