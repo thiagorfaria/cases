@@ -1,4 +1,4 @@
-(ns cases.core.i.ex-into-array
+(ns cases.core.i.into-array
   (:import [java.nio.file Paths]))
 
 ;Returns an array with components set to the values in aseq. The array's

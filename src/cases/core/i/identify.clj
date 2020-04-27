@@ -1,4 +1,4 @@
-(ns cases.core.i.ex_identify)
+(ns cases.core.i.identify)
 
 ;; Returns its argument.
 

@@ -1,4 +1,4 @@
-(ns cases.core.i.ex-interate)
+(ns cases.core.i.interate)
 
 ;; Returns a lazy sequence of x, (f x), (f (f x)) etc. f must be free of side-effects
 

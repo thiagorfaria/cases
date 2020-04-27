@@ -1,4 +1,4 @@
-(ns cases.core.i.ex-int-array)
+(ns cases.core.i.int-array)
 
 ;Creates an array of ints
 
