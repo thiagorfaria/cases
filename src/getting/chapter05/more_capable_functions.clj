@@ -1,4 +1,4 @@
-(ns getting.chapter05.example)
+(ns getting.chapter05.more_capable_functions)
 
 ;; One Function, Different Parameters
 (println "One Function, Different Parameters")

@@ -1,4 +1,4 @@
-(ns getting.chapter04.example)
+(ns getting.chapter04.logic)
 
 ;; The Fundamental If
 (println "The Fundamental If")

@@ -1,4 +1,4 @@
-(ns getting.chapter03.example)
+(ns getting.chapter03.maps_keywords_and_sets)
 
 ;; This goes with that
 (println "This goes with that")

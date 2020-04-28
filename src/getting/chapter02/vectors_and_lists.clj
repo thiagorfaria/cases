@@ -1,4 +1,4 @@
-(ns getting.chapter02.example)
+(ns getting.chapter02.vectors_and_lists)
 
 ;; A tookit of function
 (println "A tookit of function")

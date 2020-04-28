@@ -1,4 +1,4 @@
-(ns getting.chapter06.example)
+(ns getting.chapter06.functions_things)
 
 ;; ## Functions are values
 (prn "## Functions are values")

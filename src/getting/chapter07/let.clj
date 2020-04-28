@@ -1,4 +1,4 @@
-(ns getting.chapter07.example)
+(ns getting.chapter07.let)
 
 ;; ## A Local, Temporary Place for Your Stuff
 (prn "## A Local, Temporary Place for Your Stuff")

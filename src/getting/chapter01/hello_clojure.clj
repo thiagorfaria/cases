@@ -1,4 +1,4 @@
-(ns getting.chapter01.example)
+(ns getting.chapter01.hello_clojure)
 
 ;; Do two semicolons add up to a whole colon?
 (println "Hello, world!")
