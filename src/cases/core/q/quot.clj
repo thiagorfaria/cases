@@ -1,4 +1,4 @@
-(ns cases.q.quot)
+(ns cases.core.q.quot)
 
 ;; quot[ient] of dividing numerator by denominator.
 (println (quot 10 3))

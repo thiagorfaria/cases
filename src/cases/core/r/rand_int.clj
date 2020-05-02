@@ -5,7 +5,6 @@
 (println (rand-int 30))
 (println (int (rand 30)))
 
-
 ; random generation of unique series of random numbers from 0 to n-1
 (defn unique-random-numbers [n]
   (let [a-set (set (take n (repeatedly #(rand-int n))))]
