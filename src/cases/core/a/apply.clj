@@ -3,15 +3,15 @@
 ;; Applies fn f to the argument list formed by prepending intervening arguments to args.
 
 (def ^:dynamic *strings* ["str1" "str2" "str3"])
-(println *strings*)
+(prn *strings*)
 (println (str *strings*))
 
-(println (apply str *strings*))
+(prn (apply str *strings*))
 
 
 ;; Note the equivalence of the following two forms
-(println (apply str ["str1" "str2" "str3"]))                ;;=> "str1str2str3"
-(println (str "str1" "str2" "str3"))                        ;;=> "str1str2str3"
+(prn (apply str ["str1" "str2" "str3"]))                    ;;=> "str1str2str3"
+(prn (str "str1" "str2" "str3"))                            ;;=> "str1str2str3"
 
 
 ;; If you were to try

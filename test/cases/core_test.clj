@@ -1,6 +1,6 @@
 (ns cases.core-test
-  (:require [clojure.test :refer :all]
-            [cases.core :refer :all]))
+  (:require [cases.core :refer :all]
+            [clojure.test :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

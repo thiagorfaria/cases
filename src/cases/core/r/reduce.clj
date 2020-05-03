@@ -21,8 +21,7 @@
 (reduce conj [1 2 3] [4 5 6])
 
 ;; A simple factorial function using reduce:
-(defn fact
-  [x]
+(defn fact [x]
   (reduce * (range 1 (inc x))))
 
 (println (fact 4))
