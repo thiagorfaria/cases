@@ -1,4 +1,4 @@
-(ns cases.core.m.ex-merge)
+(ns cases.core.m.merge)
 
 ;; Returns a map that consists of the rest of the maps conj-ed onto
 ;; the first.  If a key occurs in more than one map, the mapping from

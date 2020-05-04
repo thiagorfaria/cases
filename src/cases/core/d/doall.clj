@@ -6,7 +6,7 @@
 ;; be used to force any effects. Walks through the successive nexts of
 ;; the seq, retains the head and returns it, thus causing the entire
 ;; seq to reside in memory at one time.
-
+;; TODO Try to understand later
 (def foot (map println [1 2 3]))
 (println (time foot))
 
