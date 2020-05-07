@@ -1,6 +1,6 @@
 (ns cases.core.l.line-seq
   (:require [clojure.java.io :as io])
-  (:import (java.io StringReader BufferedReader)))
+  (:import (java.io BufferedReader StringReader)))
 
 (with-open [rdr (io/reader "/Users/thiagofaria/Work/workspace/cases/resources/authors.txt")]
   (println (count (line-seq rdr))))
