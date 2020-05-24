@@ -73,6 +73,7 @@
 (println (artist-description2 false [:austen :dickinson]))
 
 ;; ## Digging into maps
+(println)
 (println "## Digging into maps")
 (println)
 (def artist-map {:painter :monet :novelist :austen})
@@ -82,6 +83,7 @@
   (println "The novelist is:" writer))
 
 ;; ## Digging into nested maps
+(println)
 (println "## Digging into nested maps")
 (println)
 (def austen {:name    "Jane Austen"
@@ -91,12 +93,89 @@
 (prn (:name austen))
 (prn (:father (:parents austen)))
 (prn (-> austen :parents :mother))
+(prn (:mother (:parents austen)))
+(let [{parents :parents} austen]
+  (prn parents)
+  (let [{dad :father mom :mother} parents]
+    (println "Jane Austen's dad's name was" dad)
+    (println "Jane Austen's mom's name was" mom)))
 (let [{{dad :father mom :mother} :parents} austen]
   (println "Jane Austen's dad's name was" dad)
   (println "Jane Austen's mom's name was" mom))
 
-(let [{name :name
-       {mom :mother} :parents
-       {dob :born} :dates} austen]
+(let [{name                      :name
+       {mom :mother dad :father} :parents
+       {dob :born}               :dates} austen]
   (println name "was born in" dob)
-  (println name "mother's name is" mom))
+  (println name "mother's name is" mom)
+  (println name "father's name is" dad))
+
+;; ## The final frontier: Mixing and Matching
+(println)
+(println "## The final frontier: Mixing and Matching")
+(println)
+
+(def author {:name  "Jane Austen"
+             :books [{:title "Sense and Sensibility" :published 1811}
+                     {:title "Emma" :published 1815}]})
+(prn author)
+
+(let [{name :name [_ book] :books} author]
+  (println "The author is" name)
+  (println "One of the author's books is" book))
+
+(def authors [{:name "Jane Austen" :born 1775}
+              {:name "Charles Dickens" :born 1812}])
+(prn authors)
+
+(let [[{dob-1 :born} {dob-2 :born}] authors]
+  (println "One author was born in" dob-1)
+  (println "The other author was born in" dob-2))
+
+(println)
+; ## Going further
+(println "## Going further")
+(println)
+
+(def romeo {:name "Romeo" :age 16 :gender :male})
+(prn romeo)
+(defn character-desc [{name :name age :age gender :gender}]
+  (str "Name: " name " age: " age " gender: " gender))
+(println (character-desc romeo))
+
+(defn character-desc2 [{:keys [name age gender]}]
+  (str "Name: " name " age: " age " gender: " gender))
+(println (character-desc2 romeo))
+
+(defn character-desc3 [{:keys [name gender] age-in-year :age}]
+  (str "Name: " name " age: " age-in-year " gender: " gender))
+(println (character-desc3 romeo))
+
+(defn add-greeting [character]
+  (let [{:keys [name age]} character]
+    (assoc character :greeting (str "Hello, my name is " name " and I am " age "!"))))
+(prn (add-greeting romeo))
+
+(defn add-greeting2 [{:keys [name age] :as character}]
+  (assoc character :greeting (str "Hello, my name is " name " and I am " age "!")))
+(prn (add-greeting2 romeo))
+
+;## Staying out of trouble
+(println)
+(println "## Staying out of trouble")
+(println)
+
+(def favorite-books [{:name "Charlie" :fav-book {:title "Carrie" :author ["Stephen" "King"]}}
+                     {:name "Jennifer" :fav-book {:title "Emma" :author ["Jane" "Austen"]}}])
+
+(prn favorite-books)
+
+(defn format-a-name [[_ {{[first-name last-name] :author} :fav-book}]]
+  (str first-name " " last-name))
+(println (format-a-name favorite-books))
+
+(defn format-a-name-better [[_ second-reader]]
+  (let [author (-> second-reader :fav-book :author)]
+    (str (first author) " " (second author))))
+
+(println (format-a-name-better favorite-books))t
