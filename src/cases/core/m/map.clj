@@ -6,7 +6,9 @@
 ;; exhausted.  Any remaining items in other colls are ignored. Function
 ;; f should accept number-of-colls arguments. Returns a transducer when
 ;; no collection is provided.
+(def my-inc (partial + 1))
 (println (map inc [1 2 3 4 5]))
+(println (map my-inc [1 2 3 4 5]))
 
 ;; map can be used with multiple collections. Collections will be consumed
 ;; and passed to the mapping function in parallel:

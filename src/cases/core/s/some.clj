@@ -23,8 +23,8 @@
 (println (some #(when (even? %) %) '(1 2 3 4)))
 (println (some #(when (even? %) %) '(1 3 5 7)))
 
-(println "some 2 in {2 \"two\" 3 \"three\"}" (some {2 "two" 3 "three"} [nil 3 2]))
-(println "some 3 in {2 \"two\" 3 \"three\"}" (some {2 "two" 3 "three"} [nil 2 3]))
+(prn "some 2 in {2 \"two\" 3 \"three\"}" (some {2 "two" 3 "three" 1 "one" nil "nil"} [nil 3 2 1]))
+(prn "some 3 in {2 \"two\" 3 \"three\"}" (some {2 "two" 3 "three"} [nil 2 3]))
 (println "some nil in {nil \"nothing\" 2 \"two\" 3 \"three\"}" (some {nil "nothing" 2 "two" 3 "three"} [nil 3 2]))
 
 ;; the hash (as function) returns a nil for the key of '3',
