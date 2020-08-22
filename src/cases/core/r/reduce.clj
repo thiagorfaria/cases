@@ -10,12 +10,12 @@
 ;; applying f to that result and the 2nd item, etc. If coll contains no
 ;; items, returns val and f is not called.
 
-(println (reduce + [1 2 3 4 5]))                            ;;=> 15
-(println (reduce + []))                                     ;;=> 0
-(println (reduce + [1]))                                    ;;=> 1
-(println (reduce + [1 2]))                                  ;;=> 3
-(println (reduce + 1 []))                                   ;;=> 1
-(println (reduce + 1 [2 3]))                                ;;=> 6
+(prn "reduce + [1 2 3 4 5] = " (reduce + [1 2 3 4 5]))
+(prn "reduce + [] = " (reduce + []))
+(prn "reduce + [1] = " (reduce + [1]))
+(prn "reduce + [1 2] = " (reduce + [1 2]))
+(prn "reduce + 1 [] = " (reduce + 1 []))
+(prn "reduce + 1 [2 3] = " (reduce + 1 [2 3]))
 
 ;; Add one collection to another (combining sequences is done with cons):
 (reduce conj [1 2 3] [4 5 6])
@@ -24,4 +24,4 @@
 (defn fact [x]
   (reduce * (range 1 (inc x))))
 
-(println (fact 4))
+(prn (fact 4))
