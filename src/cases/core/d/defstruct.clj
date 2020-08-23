@@ -2,6 +2,10 @@
 
 ;; Same as (def name (create-struct keys...))
 
+;; see
+;;   cases.core.s.struct
+
 (defstruct person :name :age :height)
 
-(println (struct person "george" 22 115))
+(def person-struct (struct person "george" 22 115))
+(prn person-struct)

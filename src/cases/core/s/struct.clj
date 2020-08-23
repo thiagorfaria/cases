@@ -4,7 +4,11 @@
 ;structure-basis. vals must be supplied for basis keys in order -
 ;where values are not supplied they will default to nil.
 
+;; see
+;;   cases.core.d.defstruct
+
 (defstruct mystruct :foo :bar)
 
-(println (struct mystruct "eggplant" "pizza"))
+(def mystruct-struct (struct mystruct "eggplant" "pizza"))
+(prn mystruct-struct)
 
