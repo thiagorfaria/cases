@@ -1,10 +1,12 @@
 (ns cases.core.vars.*ns*)
 
 ;; A clojure.lang.Namespace object representing the current namespace.
-(println *ns*)
+(prn *ns*)
 
-(println (ns cases.core.vars.+))
-(println *ns*)
+(ns cases.core.vars.+)
+
+(prn *ns*)
+(prn (str *ns*))
 
 (ns cases.core.vars.*ns*)
-(println *ns*)
+(prn (str *ns*))
