@@ -6,13 +6,11 @@
 ;; in O(n) time, for sequences.
 
 (def my-seq ["a" "b" "c" "d"])
-(println (nth my-seq 0))
-(println (nth my-seq 1))
+(prn (nth my-seq 0))
+(prn (nth my-seq 1))
 (try
-  (println (nth [] 0))
-  (catch Exception e
-    (println "Exception =>" e)
-    (println)))
-(println (nth [] 0 "nothing found"))
-(println (nth [0 1 2] 77 1337))
-(println (nth ["last"] -1 "this is not perl"))
+  (prn (nth [] 0))
+  (catch Exception e (prn "Exception =>" (.getMessage e))))
+(prn (nth [] 0 "nothing found"))
+(prn (nth [0 1 2] 77 1337))
+(prn (nth ["last"] -1 "this is not perl"))
