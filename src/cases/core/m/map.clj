@@ -25,7 +25,8 @@
 
 (title "The same of first test example but using partial function")
 (def ^:private my-inc (partial + 1))
-(prn (map my-inc my-vec))
+(def my-map-inc (map my-inc my-vec))
+(prn my-map-inc)
 
 (title "map can be used with multiple collections. Collections will be consumed"
        "passed and to the mapping function in parallel:")
