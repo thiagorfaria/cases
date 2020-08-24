@@ -4,22 +4,24 @@
 ;; current value plus any args
 
 (defn sqr [n] "Squares a number" (* n n))
-(println (sqr 5))
+(prn (sqr 5))
 
 (alter-var-root
   (var sqr)                                                 ; var to alter
   (fn [f]                                                   ; fn to apply to the var's value
-    #(do (println "Squaring" %)                             ; returns a new fn wrapping old fn
+    #(do (prn "Squaring" %)                                 ; returns a new fn wrapping old fn
          (f %))))
 
-(println (sqr 5))
+(prn (sqr 5))
 
 (def string "abcd")
-(println string)
+(prn string)
+
 (alter-var-root #'string (constantly "wxyz"))
-(println string)
+(prn string)
+
 (alter-var-root #'string (constantly "1234"))
-(println string)
+(prn string)
 
 
 ;; TODO see again
