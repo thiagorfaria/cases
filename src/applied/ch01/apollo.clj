@@ -1,6 +1,6 @@
 (ns applied.ch01.apollo)
 
-(defn make-mission
+(defn- make-mission
   [name system launched manned? opts]
   (let [{:keys [cm-name                                     ;; command module
                 lm-name                                     ;; lunar module
@@ -15,9 +15,9 @@
      :orbits   orbits
      :evas     evas}))
 
-(def mission-defaults {:orbits 0 :evas 0})
+(def ^:private mission-defaults {:orbits 0 :evas 0})
 
-(defn make-mission-2
+(defn- make-mission-2
   [name system launched manned? opts]
   (let [{:keys [cm-name                                     ;; command module
                 lm-name                                     ;; lunar module
@@ -32,7 +32,7 @@
      :orbits   orbits
      :evas     evas}))
 
-(defn make-mission-3
+(defn- make-mission-3
   [name system launched manned? & opts]
   (let [{:keys [cm-name                                     ;; command module
                 lm-name                                     ;; lunar module
@@ -47,7 +47,7 @@
      :orbits   orbits
      :evas     evas}))
 
-(defn make-mission-4
+(defn- make-mission-4
   [name system launched manned? & opts]
   (let [{:keys [cm-name                                     ;; command module
                 lm-name                                     ;; lunar module
@@ -101,4 +101,14 @@
                   :orbits 30
                   :evas 1))
 
-(defrecord Planet [name moons volume mass aphelion perihelion])
+
+(defn- euclidean-norm [ecc-vector] ecc-vector)
+
+(defrecord Planet [name moons volume mass aphelion perihelion orbital-eccentricity])
+
+(defn- make-planet
+  "Make a planet from field values and an eccentricity vector"
+  [name moons volume mass aphelion perihelion ecc-vector]
+  (->Planet name moons volume mass aphelion perihelion (euclidean-norm ecc-vector)))
+
+(def earth (make-planet "Earth" 1 1000000 1000000 123 123 [:a :b :c]))

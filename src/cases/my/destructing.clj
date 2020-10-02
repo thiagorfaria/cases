@@ -17,8 +17,8 @@
 (def my-list (list :a :b "c" 'd))
 (prn my-list)
 
-(let [[a b c d] my-list]
-  (prn a b c d))
+(let [[a b c d e] my-list]
+  (prn a b c d e))
 
 (defn print-letter [[a _ c]]
   (prn a c))
