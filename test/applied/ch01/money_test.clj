@@ -15,6 +15,7 @@
     (is (= (money/=$ usd1) true))
     (is (= (money/=$ usd1 usd2) true))
     (is (= (money/=$ usd1 usd2 usd3) true))
+    (is (= (money/=$ usd1 usd2 usd3 usd1) true))
     (is (= (money/=$ usd1 usd4) false))
     (is (= (money/=$ usd1 usd2 usd4) false)))
 

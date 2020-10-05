@@ -104,7 +104,13 @@
 
 (defn- euclidean-norm [ecc-vector] ecc-vector)
 
-(defrecord Planet [name moons volume mass aphelion perihelion orbital-eccentricity])
+(defrecord Planet [name
+                   moons
+                   volume
+                   mass
+                   aphelion
+                   perihelion
+                   orbital-eccentricity])
 
 (defn- make-planet
   "Make a planet from field values and an eccentricity vector"
