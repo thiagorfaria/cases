@@ -11,3 +11,15 @@
 (let [my-map (map list [1 2 3] [6 5 4])]
   (println my-map)
   (doseq [[x y] my-map] (println (* x y))))
+
+
+(doseq [year (range 2009 2021)]
+  (print (str year "->")))
+
+(println)
+(doseq [text ["a" "b" "c" "d"]]
+  (print (str text "->")))
+
+(println)
+(doseq [my-map {:a 1 :b 2 :c 3 :d {:e 4}}]
+  (print (str (key my-map) ":" (val my-map) "->")))
